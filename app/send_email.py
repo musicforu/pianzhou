@@ -22,12 +22,12 @@ def send_email(to_list,sub,template,**kwargs):  #to_list：收件人；sub：主
     try:  
         s = smtplib.SMTP()  
         s.connect(mail_host)  #连接smtp服务器
-        print(me, to_list)        
+        print me, to_list        
         s.login(mail_user,mail_pass)  #登陆服务器  
-        print(mail_user,mail_pass,'Login smtp server')              
+        print mail_user,mail_pass         
         s.sendmail(me, to_list, msg.as_string())  #发送邮件
-        print(mail_user[-1],type(mail_pass))
+        print mail_user[-1]
         s.close() 
         return True  
-    except (Exception):            
+    except Exception:            
         return False  
