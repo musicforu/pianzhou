@@ -30,13 +30,11 @@ class Config:
 
 class ProductionConfig(Config):
 	SQLALCHEMY_DATABASE_URI = 'postgres://ehvfwslnxkxmxh:3s_8uTwvXaBdug-yinVFlDdRkl@ec2-54-83-52-144.compute-1.amazonaws.com:5432/dbvamn4raq0k91'
-
 	@classmethod
 	def init_app(cls, app):
 		Config.init_app(app)
 
-class HerokuConfig(ProductionConfig):
-	
+class HerokuConfig(ProductionConfig):	
 	@classmethod
 	def init_app(cls, app):
 		ProductionConfig.init_app(app)
