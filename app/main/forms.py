@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 #﻿-*- coding: utf-8 -*-
 
+from flask import request
 from flask.ext.wtf import Form
 from wtforms import StringField,SubmitField,TextAreaField,BooleanField,SelectField
 from flask.ext.pagedown.fields import PageDownField
 from wtforms.validators import Required,Length,Email,Regexp
+from flask_wtf.file import FileField,FileAllowed
+
 class NameForm(Form):
 	name=StringField('What is your name ?',validators=[Required()])
 	submit=SubmitField('Submit')
@@ -13,6 +16,7 @@ class EditProfileForm(Form):
 	name=StringField('Real Name',validators=[Length(0,64)])
 	location=StringField('Location',validators=[Length(0,64)])
 	about_me=TextAreaField('About Me')
+	photo=FileField('Your Head Photo',validators=[FileRequired(),FileAllowed(['jpg', 'png','jpeg'], '请上传图片格式！')])
 	submit=SubmitField('Submit')
 
 class EditProfileAdminForm(Form):
