@@ -84,7 +84,8 @@ def unconfirmed():
 def resend_confirmation():
 	token=current_user.generate_confirmation_token()
 	send_email([current_user.email],'Confirm your account',
-			'confirm',user=current_user,token=token)	
+			'confirm',user=current_user,token=token)
+	print "send email here"	
 	flash('A new confirmation email has been sent to you by email')
 	return redirect(url_for('main.index'))
 
