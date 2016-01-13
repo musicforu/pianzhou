@@ -85,7 +85,7 @@ def edit_profile():
 		f=request.files['photo']
 		f_name=secure_filename(f.filename)
 		f_type=f_name.split('.')[1]
-		avatar_name=form.username.data+'.'+f_type
+		avatar_name=current_user.username+'.'+f_type
 		avatar_path='photos/'+avatar_name
 		avatar_upload_path=os.path.join(upload_path,avatar_name)
 		f.save(avatar_upload_path)
