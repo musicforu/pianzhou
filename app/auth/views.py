@@ -40,14 +40,14 @@ def register():
 		f_type=f_name.split('.')[1]
 		avatar_name=form.username.data+'.'+f_type
 		avatar_path='photos/'+avatar_name
-		avatar_upload_path=os.path.join(upload_path,avatar_name)
+		avatar_upload_path=os.path.join(upload_path,avatar_name)		
+		f.save(avatar_upload_path)
 		user=User(email=form.email.data,
 					username=form.username.data,
 					password=form.password.data,
 					avatar=avatar_path)
 		db.session.add(user)
 		db.session.commit()		
-		f.save(avatar_upload_path)
 		token=user.generate_confirmation_token()
 		send_email([user.email],'Confirm your account',
 			'confirm',user=user,token=token)		
