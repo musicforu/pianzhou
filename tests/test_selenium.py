@@ -68,8 +68,7 @@ class SeleniumTestCase(unittest.TestCase):
 		self.client.find_element_by_link_text('Log In').click()
 		self.assertTrue('<h1>Login</h1>' in self.client.page_source)
 
-		self.client.find_element_by_name('email').\
-			send_keys('18022132633@163.com')
+		self.client.find_element_by_name('email').send_keys('18022132633@163.com')
 		self.client.find_element_by_name('password').send_keys('cat')
 		self.client.find_element_by_name('submit').click()
 		self.assertTrue(re.search('Hello,\s+john!',self.client.page_source))

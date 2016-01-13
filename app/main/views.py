@@ -31,8 +31,7 @@ def after_request(response):
 @main.route('/',methods=['GET','POST'])
 def index():	
 	form=PostForm()
-	if current_user.can(Permission.WRITE_ARTICLES) and \
-			form.validate_on_submit():
+	if current_user.can(Permission.WRITE_ARTICLES) and form.validate_on_submit():
 		post=Post(body=form.body.data,
 			author=current_user._get_current_object())
 		db.session.add(post)
@@ -130,8 +129,7 @@ def post(id):
 		return redirect(url_for('.post',id=post.id,page=-1))
 	page=request.args.get('page',1,type=int)
 	if page==-1:
-		page=(post.comments.count()-1)/\
-			current_app.config['FLASKY_COMMENTS_PER_PAGE']+1
+		page=(post.comments.count()-1)/current_app.config['FLASKY_COMMENTS_PER_PAGE']+1
 	pagination=post.comments.order_by(Comment.timestamp.asc()).paginate(
 					page,per_page=current_app.config['FLASKY_COMMENTS_PER_PAGE'],
 					error_out=False)
@@ -143,8 +141,7 @@ def post(id):
 @login_required
 def edit(id):
 	post=Post.query.get_or_404(id)
-	if current_user!=post.author and \
-			not current_user.can(Permission.ADMINISTER):
+	if current_user!=post.author and not current_user.can(Permission.ADMINISTER):
 		abort(403)
 	form=PostForm()
 	if form.validate_on_submit():
@@ -251,8 +248,7 @@ def moderate_enable(id):
 	comment.disabled=False
 	db.session.add(comment)
 	db.session.commit()
-	return redirect(url_for('.moderate',
-								page=request.args.get('page',1,type=int)))
+	return redirect(url_for('.moderate',page=request.args.get('page',1,type=int)))
 
 @main.route('/moderate/enable/<int:id>')
 @login_required
@@ -262,8 +258,7 @@ def moderate_disable(id):
 	comment.disabled=True
 	db.session.add(comment)
 	db.session.commit()
-	return redirect(url_for('.moderate',
-								page=request.args.get('page',1,type=int)))
+	return redirect(url_for('.moderate',page=request.args.get('page',1,type=int)))
 	
 @main.route('/shutdown')
 def server_shutdown():
