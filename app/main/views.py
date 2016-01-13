@@ -17,7 +17,7 @@ from flask.ext.sqlalchemy import get_debug_queries
 from werkzeug.utils import secure_filename
 
 mailto_list=["799611732@qq.com"] 
-
+upload_path='app/static/photos'
 
 @main.after_app_request
 def after_request(response):
