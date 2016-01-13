@@ -16,7 +16,7 @@ class EditProfileForm(Form):
 	name=StringField('Real Name',validators=[Length(0,64)])
 	location=StringField('Location',validators=[Length(0,64)])
 	about_me=TextAreaField('About Me')
-	photo=FileField('Your Head Photo',validators=[FileRequired(),FileAllowed(['jpg', 'png','jpeg'], '请上传图片格式！')])
+	photo=FileField('Your Head Photo',validators=[FileAllowed(['jpg', 'png','jpeg'], '请上传图片格式！')])
 	submit=SubmitField('Submit')
 
 class EditProfileAdminForm(Form):
