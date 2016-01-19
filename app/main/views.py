@@ -128,9 +128,7 @@ def post(id):
 	post=Post.query.get_or_404(id)
 	form=CommentForm()
 	if form.validate_on_submit():
-		comment=Comment(body=form.body.data,
-						post=post,
-						author=current_user._get_current_object())
+		comment=Comment(body=form.body.data,post=post,author=current_user._get_current_object())
 		db.session.add(comment)
 		db.session.commit()
 		flash('Your comment has been published.')
@@ -142,8 +140,7 @@ def post(id):
 					page,per_page=current_app.config['FLASKY_COMMENTS_PER_PAGE'],
 					error_out=False)
 	comments=pagination.items
-	return render_template('post.html',posts=[post],form=form,
-							pagination=pagination,comments=comments)
+	return render_template('post.html',posts=[post],form=form,pagination=pagination,comments=comments)
 
 @main.route('/edit/<int:id>',methods=['GET','POST'])
 @login_required
@@ -202,9 +199,7 @@ def followers(username):
 		error_out=False)
 	follows=[{'user':item.follower,'timestamp':item.timestamp}
 			for item in pagination.items]
-	return render_template('followers.html',user=user,title='Followers of',
-							endpoint='.followers',pagination=pagination,
-							follows=follows)
+	return render_template('followers.html',user=user,title='Followers of',endpoint='.followers',pagination=pagination,follows=follows)
 
 @main.route('/followed-by/<username>')
 def followed_by(username):
