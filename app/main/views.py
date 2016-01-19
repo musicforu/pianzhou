@@ -82,6 +82,7 @@ def edit_profile():
 		current_user.about_me=form.about_me.data
 		db.session.add(current_user)
 		db.session.commit()
+		print 'db commit ok'
 		f=request.files['photo']
 		f_name=secure_filename(f.filename)
 		f_type=f_name.split('.')[1]
