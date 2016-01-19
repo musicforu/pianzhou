@@ -88,6 +88,7 @@ def edit_profile():
 		avatar_name=current_user.username+'.'+f_type
 		avatar_path='photos/'+avatar_name
 		avatar_upload_path=os.path.join(upload_path,avatar_name)
+		print avatar_upload_path
 		f.save(avatar_upload_path)
 		flash('Your profile has been updated.')
 		return redirect(url_for('.user',username=current_user.username))
