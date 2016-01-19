@@ -77,7 +77,9 @@ def user(username):
 def edit_profile():
 	form=EditProfileForm()
 	if form.validate_on_submit():
+		print 'here ok'
 		f=request.files['photo']
+		print 'here good'
 		f_name=secure_filename(f.filename)
 		f_type=f_name.split('.')[1]
 		avatar_name=current_user.username+'.'+f_type
