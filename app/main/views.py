@@ -84,13 +84,13 @@ def edit_profile():
 		f_type=f_name.split('.')[1]
 		avatar_name=current_user.username+'.'+f_type
 		avatar_path='photos/'+avatar_name
-		avatar_upload_path=os.path.join(upload_path,avatar_name)		
+		avatar_upload_path=os.path.join(upload_path,avatar_name)	
+		print avatar_upload_path			
 		current_user.name=form.name.data
 		current_user.location=form.location.data
 		current_user.about_me=form.about_me.data
 		db.session.add(current_user)
 		db.session.commit()
-		print avatar_upload_path
 		f.save(avatar_upload_path)
 		flash('Your profile has been updated.')
 		return redirect(url_for('.user',username=current_user.username))
