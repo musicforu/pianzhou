@@ -85,7 +85,8 @@ def edit_profile():
 		avatar_name=current_user.username+'.'+f_type
 		print 'there good'
 		avatar_path='photos/'+avatar_name
-		avatar_upload_path=os.path.join(upload_path,avatar_name)	
+		avatar_upload_path=os.path.join(upload_path,avatar_name)
+		print 'here also good'	
 		print avatar_upload_path			
 		current_user.name=form.name.data
 		current_user.location=form.location.data
