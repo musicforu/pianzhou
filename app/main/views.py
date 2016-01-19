@@ -83,6 +83,7 @@ def edit_profile():
 		f_name=secure_filename(f.filename)
 		f_type=f_name.split('.')[1]
 		avatar_name=current_user.username+'.'+f_type
+		print 'there good'
 		avatar_path='photos/'+avatar_name
 		avatar_upload_path=os.path.join(upload_path,avatar_name)	
 		print avatar_upload_path			
