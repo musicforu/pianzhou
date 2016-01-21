@@ -35,12 +35,8 @@ def logout():
 def register():
 	form=RegistrationForm()
 	if form.validate_on_submit():
-		f=request.files['photo']
-		f_name=secure_filename(f.filename)
-		f_type=f_name.split('.')[1]
-		avatar_name=form.username.data+'.'+f_type
-		avatar_path='photos/'+avatar_name
-		avatar_upload_path=os.path.join(upload_path,avatar_name)	
+		avatar_name=form.photo.data+'.jpg'
+		avatar_path='photos/'+avatar_name	
 		user=User(email=form.email.data,
 				username=form.username.data,
 				password=form.password.data,
@@ -53,7 +49,8 @@ def register():
 			'confirm',user=user,token=token)		
 		flash('A confirmation email has been sent to you by email.')
 		return redirect(url_for('main.index'))
-	return render_template('auth/register.html',form=form)
+	photos=os.listdir('app/static/photos')
+	return render_template('auth/register.html',form=form,photos=photos)
 
 @auth.route('/confirm/<token>')
 @login_required

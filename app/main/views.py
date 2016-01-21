@@ -14,7 +14,7 @@ import os
 from flask.ext.login import current_user,login_required
 from ..decorators import admin_required, permission_required
 from flask.ext.sqlalchemy import get_debug_queries
-from werkzeug.utils import secure_filename
+
 
 mailto_list=["799611732@qq.com"] 
 upload_path='app/static/photos'
@@ -77,24 +77,20 @@ def user(username):
 def edit_profile():
 	form=EditProfileForm()
 	if form.validate_on_submit():
-		f=request.files['photo']
-		f_name=secure_filename(f.filename)
-		f_type=f_name.split('.')[1]
-		avatar_name=current_user.username+'.'+f_type
-		avatar_path='photos/'+avatar_name
-		avatar_upload_path=os.path.join(upload_path,avatar_name)			
+		select_photo=form.photo.data		
 		current_user.name=form.name.data
 		current_user.location=form.location.data
 		current_user.about_me=form.about_me.data
+		current_user.avatar='photos/'+select_photo+'.jpg'
 		db.session.add(current_user)
 		db.session.commit()
-		f.save(avatar_upload_path)
 		flash('Your profile has been updated.')
 		return redirect(url_for('.user',username=current_user.username))
 	form.name.data=current_user.name
 	form.location.data=current_user.location
 	form.about_me.data=current_user.about_me
-	return render_template('edit_profile.html',form=form)
+	photos=os.listdir('app/static/photos')
+	return render_template('edit_profile.html',form=form,photos=photos)
 
 @main.route('/edit-profile/<int:id>',methods=['GET','POST'])
 @login_required

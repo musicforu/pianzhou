@@ -6,7 +6,9 @@ from flask.ext.wtf import Form
 from wtforms import StringField,SubmitField,TextAreaField,BooleanField,SelectField
 from flask.ext.pagedown.fields import PageDownField
 from wtforms.validators import Required,Length,Email,Regexp
-from flask_wtf.file import FileField,FileAllowed
+from ..tools import photos_list
+
+photos_dir='app/static/photos'
 
 class NameForm(Form):
 	name=StringField('What is your name ?',validators=[Required()])
@@ -16,7 +18,8 @@ class EditProfileForm(Form):
 	name=StringField('Real Name',validators=[Length(0,64)])
 	location=StringField('Location',validators=[Length(0,64)])
 	about_me=TextAreaField('About Me')
-	photo=FileField('Your Head Photo',validators=[FileAllowed(['jpg', 'png','jpeg'], '请上传图片格式！')])
+	photos=photos_list(photos_dir)
+	photo=SelectField('Choose your photo',choices=photos)
 	submit=SubmitField('Submit')
 
 class EditProfileAdminForm(Form):

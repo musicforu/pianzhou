@@ -22,14 +22,14 @@ class Config:
 	MAIL_USERNAME=os.environ.get('MAIL_USERNAME')
 	MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD')
 	MAIL_PORT=25
-	SQLALCHEMY_DATABASE_URI='postgres://ehvfwslnxkxmxh:3s_8uTwvXaBdug-yinVFlDdRkl@ec2-54-83-52-144.compute-1.amazonaws.com:5432/dbvamn4raq0k91'
+	SQLALCHEMY_DATABASE_URI='postgres://lvypsdriptlsdo:a3a8yzHOBdQBvwXbK6doIrHfo5@ec2-75-101-163-171.compute-1.amazonaws.com:5432/d7an2ebmn951lg'
 
 	@staticmethod
 	def init_app(app):
 		pass
 
 class ProductionConfig(Config):
-	SQLALCHEMY_DATABASE_URI = 'postgres://ehvfwslnxkxmxh:3s_8uTwvXaBdug-yinVFlDdRkl@ec2-54-83-52-144.compute-1.amazonaws.com:5432/dbvamn4raq0k91'
+	SQLALCHEMY_DATABASE_URI = 'postgres://lvypsdriptlsdo:a3a8yzHOBdQBvwXbK6doIrHfo5@ec2-75-101-163-171.compute-1.amazonaws.com:5432/d7an2ebmn951lg'
 	@classmethod
 	def init_app(cls, app):
 		Config.init_app(app)
