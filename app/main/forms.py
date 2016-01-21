@@ -11,27 +11,27 @@ from ..tools import photos_list
 photos_dir='app/static/photos'
 
 class NameForm(Form):
-	name=StringField('您的用户名是?',validators=[Required()])
-	submit=SubmitField('提交')
+	name=StringField(u'您的用户名是?',validators=[Required()])
+	submit=SubmitField(u'提交')
 
 class EditProfileForm(Form):
-	name=StringField('真实姓名',validators=[Length(0,64)])
-	location=StringField('居住地',validators=[Length(0,64)])
-	about_me=TextAreaField('个人介绍')
+	name=StringField(u'真实姓名',validators=[Length(0,64)])
+	location=StringField(u'居住地',validators=[Length(0,64)])
+	about_me=TextAreaField(u'个人介绍')
 	photos=photos_list(photos_dir)
-	photo=SelectField('选择您的头像',choices=photos)
-	submit=SubmitField('提交')
+	photo=SelectField(u'选择您的头像',choices=photos)
+	submit=SubmitField(u'提交')
 
 class EditProfileAdminForm(Form):
-	email=StringField('邮箱地址',validators=[Required(),Length(0,64),Email()])
-	username=StringField('用户名',validators=[
-		Required(),Length(1,64),Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,'用户名必须只包含字母，数字，点或下划线')])
-	confirmed=BooleanField('确认')
-	role=SelectField('角色',coerce=int)
-	name=StringField('真实名字',validators=[Length(0,64)])
-	location=StringField('居住地',validators=[Length(0,64)])
-	about_me=TextAreaField('个人介绍')
-	submit=SubmitField('提交')
+	email=StringField(u'邮箱地址',validators=[Required(),Length(0,64),Email()])
+	username=StringField(u'用户名',validators=[
+		Required(),Length(1,64),Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,u'用户名必须只包含字母，数字，点或下划线')])
+	confirmed=BooleanField(u'确认')
+	role=SelectField(u'角色',coerce=int)
+	name=StringField(u'真实名字',validators=[Length(0,64)])
+	location=StringField(u'居住地',validators=[Length(0,64)])
+	about_me=TextAreaField(u'个人介绍')
+	submit=SubmitField(u'提交')
 
 	def __init__(self,user,*args,**kwargs):
 		super(EditProfileAdminForm,self).__init__(*args,**kwargs)
@@ -40,18 +40,18 @@ class EditProfileAdminForm(Form):
 
 	def validate_email(self,field):
 		if field.data != self.user.email and User.query.filter_by(email=field.data).first():
-			raise ValidationError('邮箱已经被注册.')
+			raise ValidationError(u'邮箱已经被注册.')
 
 	def validate_username(self,field):
 		if field.data != self.user.username and User.query.filter_by(username=field.data).first():
-			raise ValidationError('用户名已经被使用.')
+			raise ValidationError(u'用户名已经被使用.')
 
 class PostForm(Form):
-	body=PageDownField("您现在想说些什么吗？",validators=[Required()])
-	submit=SubmitField("发表")
+	body=PageDownField(u"您现在想说些什么吗？",validators=[Required()])
+	submit=SubmitField(u"发表")
 
 
 class CommentForm(Form):
 	body=StringField('',validators=[Required()])
-	submit=SubmitField('发表')
+	submit=SubmitField(u'发表')
 
