@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% import "_macros.html" as macros %}
-{% block title %}Flasky{% endblock %}
+{% block title %}扁舟{% endblock %}
 
 {% block page_content %}
 
 <div class="page-header"> 
-	<h1>Hello, {% if current_user.is_authenticated %}
-	{{ current_user.username }}{% else %}Stranger{% endif %}!
+	<h1>您好, {% if current_user.is_authenticated %}
+	{{ current_user.username }}{% else %}您还没有登陆{% endif %}!
 	</h1>
 </div>
 
@@ -19,14 +19,14 @@
 </div>
 
 
-<p>The local date and time is {{moment(current_time).format('LLL')}}.</p>
-<p>That was {{moment(current_time).fromNow(refresh=True)}}</p>
+<p>当地时间为： {{moment(current_time).format('LLL')}}.</p>
+<p>时间已经过去： {{moment(current_time).fromNow(refresh=True)}}</p>
 
 <div class="post-tabs">
     <ul class="nav nav-tabs">
-        <li{% if not show_followed %} class="active"{% endif %}><a href="{{ url_for('.show_all') }}">All</a></li>
+        <li{% if not show_followed %} class="active"{% endif %}><a href="{{ url_for('.show_all') }}">全部</a></li>
         {% if current_user.is_authenticated %}
-        <li{% if show_followed %} class="active"{% endif %}><a href="{{ url_for('.show_followed') }}">Followers</a></li>
+        <li{% if show_followed %} class="active"{% endif %}><a href="{{ url_for('.show_followed') }}">关注的人</a></li>
         {% endif %}
     </ul>
     {% include '_posts.html' %}
