@@ -11,10 +11,10 @@ from ..tools import photos_list
 photos_dir='app/static/photos'
 
 class LoginForm(Form):
-	email=StringField('邮箱地址',validators=[Required(),Length(1,64),Email()])
-	password=PasswordField('密码',validators=[Required()])
-	remember_me=BooleanField('保持登陆')
-	submit=SubmitField('登陆')
+	email=StringField(u'邮箱地址',validators=[Required(),Length(1,64),Email()])
+	password=PasswordField(u'密码',validators=[Required()])
+	remember_me=BooleanField(u'保持登陆')
+	submit=SubmitField(u'登陆')
 
 class RegistrationForm(Form):
 	email=StringField('邮箱地址',validators=[Required(),Length(1,64),Email()])
