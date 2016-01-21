@@ -25,7 +25,7 @@ def send_email(to_list,sub,template,**kwargs):  #to_list：收件人；sub：主
         s.login(mail_user,mail_pass)  #登陆服务器       
         s.sendmail(me, to_list, msg.as_string())  #发送邮件
         s.close() 
-        print "send email successfully"
+        print "send email successfully"，msg
         return True  
     except Exception:            
         return False  
