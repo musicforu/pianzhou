@@ -22,7 +22,8 @@ class RegistrationForm(Form):
 		Required(),Length(1,64),Regexp('^[a-zA-Z][a-zA-Z0-9_.]*$',0,'Usernames must have only letters,numbers,dots or underscores')])
 	password=PasswordField('Password',validators=[Required(),EqualTo('password2',message='Password must match.')])
 	password2=PasswordField('Confirm password',validators=[Required()])
-	#photos=photos_list(photos_dir)
+	photos=photos_list(photos_dir)
+	print photos,'photos'
 	#photo=SelectField('Choose your photo',choices=photos)	
 	submit=SubmitField('Register')
 
