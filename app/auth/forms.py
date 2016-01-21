@@ -23,8 +23,7 @@ class RegistrationForm(Form):
 	password=PasswordField('Password',validators=[Required(),EqualTo('password2',message='Password must match.')])
 	password2=PasswordField('Confirm password',validators=[Required()])
 	photos=photos_list(photos_dir)
-	print photos,'photos'
-	#photo=SelectField('Choose your photo',choices=photos)	
+	photo=SelectField('Choose your photo',choices=photos)	
 	submit=SubmitField('Register')
 
 	def validate_email(self,field):
