@@ -79,7 +79,7 @@ def unconfirmed():
 @login_required
 def resend_confirmation():
 	token=current_user.generate_confirmation_token()
-	send_email([current_user.email],u'确认您的账户',
+	send_email([current_user.email],'boat',
 			'confirm',user=current_user,token=token)
 	flash(u'一封确认邮件已经发到您的邮箱.')
 	return redirect(url_for('main.index'))
