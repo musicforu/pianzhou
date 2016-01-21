@@ -42,8 +42,7 @@ def register():
 				password=form.password.data,
 				avatar=avatar_path)
 		db.session.add(user)
-		db.session.commit()			
-		f.save(avatar_upload_path)	
+		db.session.commit()				
 		token=user.generate_confirmation_token()
 		send_email([user.email],u'验证您的账户',
 			'confirm',user=user,token=token)		
