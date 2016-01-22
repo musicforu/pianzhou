@@ -5,7 +5,8 @@
 }
 .profile-header {
     min-height: 260px;
-    margin-left: 70px;
+    margin-top: -10px;
+    margin-left: 5px;
 }
 .profile-posts{
 	margin-top: 20px;
