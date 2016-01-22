@@ -5,7 +5,7 @@
 }
 .profile-header {
     min-height: 260px;
-    margin-left: 320px;
+    margin-left: 100px;
 }
 .profile-posts{
 	margin-top: 20px;
@@ -64,4 +64,7 @@
 	margin-top: 10px;
 	width: 106px;
 	height: 106px;
+}
+.profile-avatar{
+	overflow: hidden;
 }
