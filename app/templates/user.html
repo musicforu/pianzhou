@@ -4,9 +4,13 @@
 
 {% block page_content %}
 <div class="page-header">
+  <div class="row">
+    <div class="col-md-8">
 	<img class="profile-thumbnail img-rounded" 
 	src="{{url_for('static',filename=user.avatar)}}">
-  <div class="profile-header">
+    </div>
+    <div class="col-md-4">
+      <div class="profile-header">
 	<h1>{{ user.username }}</h1>
 	{% if user.name or user.location %}
 	<p>
@@ -60,6 +64,8 @@
 		</a>
 		{% endif %}
 	</p>
+      </div>
+    </div>
   </div>
 </div>
 <h3 class="profile-posts">由 {{ user.username }} 发表</h3>
