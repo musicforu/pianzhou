@@ -6,6 +6,7 @@ from flask.ext.wtf import Form
 from wtforms import StringField,SubmitField,TextAreaField,BooleanField,SelectField
 from flask.ext.pagedown.fields import PageDownField
 from wtforms.validators import Required,Length,Email,Regexp
+from ..models import User,Role
 from ..tools import photos_list
 
 photos_dir='app/static/photos'
