@@ -8,7 +8,7 @@ basedir=os.path.abspath(os.path.dirname(__file__))
 class Config:
 	SECRET_KEY='hard to guess string'
 	SQLALCHEMY_COMMIT_ON_TEARDOWN=True
-	FLASKY_ADMIN='Superman'
+	FLASKY_ADMIN='fangzhou_test@sina.com'
 	DEBUG=True
 	FLASKY_MAIL_SUBJECT_PREFIX=u'[扁舟]'
 	FLASKY_MAIL_SENDER=u'扁舟 管理员 <扁舟@666.com>'
