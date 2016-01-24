@@ -34,7 +34,7 @@ type="image/x-icon">
 			<ul class="nav navbar-nav navbar-right">
 				{% if current_user.can(Permission.MODERATE_COMMENTS) %}
 				<li><a href="{{ url_for('main.moderate') }}">
-					适度评论
+					管理评论
 				</a></li>
 				{% endif %}
 				{% if current_user.is_authenticated %}

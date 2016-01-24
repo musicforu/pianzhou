@@ -8,7 +8,7 @@ basedir=os.path.abspath(os.path.dirname(__file__))
 class Config:
 	SECRET_KEY='hard to guess string'
 	SQLALCHEMY_COMMIT_ON_TEARDOWN=True
-	FLASKY_ADMIN='test1455213@sina.com'
+	FLASKY_ADMIN='musicforu@sina.com'
 	DEBUG=True
 	FLASKY_MAIL_SUBJECT_PREFIX=u'[扁舟]'
 	FLASKY_MAIL_SENDER=u'扁舟 管理员 <扁舟@666.com>'
@@ -22,14 +22,14 @@ class Config:
 	MAIL_USERNAME=os.environ.get('MAIL_USERNAME')
 	MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD')
 	MAIL_PORT=25
-	SQLALCHEMY_DATABASE_URI='postgres://lvypsdriptlsdo:a3a8yzHOBdQBvwXbK6doIrHfo5@ec2-75-101-163-171.compute-1.amazonaws.com:5432/d7an2ebmn951lg'
+	SQLALCHEMY_DATABASE_URI='postgres://yeewsbzysuxoew:kCpkVlWy5xAJWtQz3dx4Xvg9oc@ec2-54-197-241-239.compute-1.amazonaws.com:5432/d2nvt26rjkm2fk'
 
 	@staticmethod
 	def init_app(app):
 		pass
 
 class ProductionConfig(Config):
-	SQLALCHEMY_DATABASE_URI = 'postgres://lvypsdriptlsdo:a3a8yzHOBdQBvwXbK6doIrHfo5@ec2-75-101-163-171.compute-1.amazonaws.com:5432/d7an2ebmn951lg'
+	SQLALCHEMY_DATABASE_URI = 'postgres://yeewsbzysuxoew:kCpkVlWy5xAJWtQz3dx4Xvg9oc@ec2-54-197-241-239.compute-1.amazonaws.com:5432/d2nvt26rjkm2fk'
 	@classmethod
 	def init_app(cls, app):
 		Config.init_app(app)
