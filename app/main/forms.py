@@ -27,7 +27,7 @@ class EditProfileAdminForm(Form):
 	email=StringField(u'邮箱地址',validators=[Required(),Length(0,64),Email()])
 	username=StringField(u'用户名',validators=[
 		Required(),Length(1,64),Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,u'用户名必须只包含字母，数字，点或下划线')])
-	confirmed=BooleanField(u'确认')
+	confirmed=BooleanField(u'邮箱已验证通过')
 	role=SelectField(u'角色',coerce=int)
 	name=StringField(u'真实名字',validators=[Length(0,64)])
 	location=StringField(u'居住地',validators=[Length(0,64)])
