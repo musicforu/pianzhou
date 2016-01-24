@@ -13,7 +13,7 @@ mail_pass=os.environ['MAIL_PASSWORD']#口令"去qq邮箱开启SMTP服务获取�
 mail_postfix="qq.com"  #发件箱的后缀
 
 def send_email(to_list,sub,template,**kwargs):  #to_list：收件人；sub：主题；content：邮件内容
-    me=u"扁舟"+"<"+mail_user+"@"+mail_postfix+">"   #这里的hello可以任意设置，收到信后，将按照设置显示
+    me="boat"+"<"+mail_user+"@"+mail_postfix+">"   #这里的hello可以任意设置，收到信后，将按照设置显示
     content=render_template('auth/email/'+template+'.html',**kwargs)
     msg = MIMEText(content,_subtype='html',_charset='gb2312')    #创建一个实例，这里设置为html格式邮件
     msg['Subject'] = sub    #设置主题
