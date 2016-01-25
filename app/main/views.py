@@ -148,6 +148,7 @@ def edit(id):
 	if form.validate_on_submit():
 		post.body=form.body.data
 		db.session.add(post)
+		db.session.commit()
 		flash(u'内容已经更新.')
 		return redirect(url_for('.post',id=post.id))
 	form.body.data=post.body
