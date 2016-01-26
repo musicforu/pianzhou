@@ -1,6 +1,7 @@
 <ul class="comments">
     {% for comment in comments %}
     <li class="comment">
+      <div>
         <div>
             <a href="{{url_for('.user',username=comment.author.username)}}">
                 <img class="img-rounded comment-thumbnail" 
@@ -30,8 +31,9 @@
                 <a class="btn btn-danger btn-xs" href="{{ url_for('.moderate_disable', id=comment.id, page=page) }}">禁用</a>
                 {% endif %}
             {% endif %}
-          <hr class="hr-comment">
         </div>
+        <hr class="hr-comment">
+      </div>
     </li>
     {% endfor %}
 </ul>
