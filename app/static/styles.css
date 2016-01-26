@@ -69,8 +69,13 @@
 .profile-avatar{
 	overflow: hidden;
 }
-.hr-css{
+.hr-post{
 	margin-top: 70px;
+	margin-bottom: 0px;
+	border-color: lightgrey;
+}
+.hr-comment{
+	margin-top: 30px;
 	margin-bottom: 0px;
 	border-color: lightgrey;
 }
