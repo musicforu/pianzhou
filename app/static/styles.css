@@ -69,6 +69,6 @@
 .profile-avatar{
 	overflow: hidden;
 }
-.hr{
-	margin-top: 5px;
+.hr-css{
+	border: 1px solid blue;
 }
