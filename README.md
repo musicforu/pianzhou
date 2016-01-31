@@ -1,4 +1,4 @@
-基于Flask框架的个人博客网站
+<h1>基于Flask框架的个人博客网站</h1>
 
 通过用户注册时的邮箱进行邮件方式的用户验证<br>
 提供更改密码以及忘记密码时的通过邮箱进行密码重置<br>
@@ -9,4 +9,4 @@
 邮件系统采用smtplib模块<br>
 CSS样式采用bootstrap
 
-个人博客网址：  https://pianzhou.herokuapp.com/
+<h4>个人博客网址：  https://pianzhou.herokuapp.com/</h4>
